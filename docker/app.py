@@ -13,7 +13,7 @@ BUCKET = "my-app-bucket-kirill"
 
 @app.route('/')
 def entry_point():
-    return 'Hello World!'
+    return 'Hello World! Test!'
 
 
 @app.route("/storage")
