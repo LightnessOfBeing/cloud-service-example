@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def entry_point():
-    return f'Hello World! Test! Test! Test!'
+    return f'Hello World! Test Message! '
 
 
 @app.route("/storage")
