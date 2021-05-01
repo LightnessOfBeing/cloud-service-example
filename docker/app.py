@@ -18,8 +18,7 @@ def entry_point():
 
 @app.route("/storage")
 def storage():
-    contents = list_files("flaskdrive")
-    return render_template('storage.html', contents=contents)
+    return render_template('storage.html')
 
 
 @app.route("/upload", methods=['POST'])
@@ -38,14 +37,6 @@ def upload():
         f.save(f.filename)
         upload_file(f"{f.filename}", S3_BUCKET)
         return redirect("/storage")
-
-
-@app.route("/download/<filename>", methods=['GET'])
-def download(filename):
-    if request.method == 'GET':
-        output = download_file(filename, S3_BUCKET)
-
-        return send_file(output, as_attachment=True)
 
 
 if __name__ == '__main__':
