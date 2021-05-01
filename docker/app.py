@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, redirect, send_file, url_for
 from src.api import upload_file
 from PIL import Image
 from io import BytesIO  
-from src.config import S3_BUCKET, AWS_ACESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+from src.config import S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 import albumentations as albu
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def entry_point():
-    return f'{AWS_ACESS_KEY_ID} {AWS_SECRET_ACCESS_KEY}  !!Hello World! Test! Test! Test!'
+    return f'{AWS_ACCESS_KEY_ID} {AWS_SECRET_ACCESS_KEY}  !!Hello World! Test! Test! Test!'
 
 
 @app.route("/storage")
