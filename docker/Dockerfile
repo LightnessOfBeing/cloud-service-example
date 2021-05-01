@@ -2,7 +2,7 @@ FROM python:3.8-slim-buster
 
 WORKDIR /home/ubuntu/app
 
-COPY . /app
+COPY . /home/ubuntu/app
 
 RUN pip3 install -r requirements.txt
 
