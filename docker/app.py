@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def entry_point():
-    return f'{AWS_ACCESS_KEY_ID} {AWS_SECRET_ACCESS_KEY}  !!Hello World! Test! Test! Test!'
+    return f'Hello World! Test! Test! Test!'
 
 
 @app.route("/storage")
