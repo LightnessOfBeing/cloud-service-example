@@ -5,15 +5,15 @@ from flask import Flask, render_template, request, redirect, send_file, url_for
 from src.api import list_files, download_file, upload_file
 from PIL import Image
 from io import BytesIO  
+from src.config import S3_BUCKET
 import albumentations as albu
 
 app = Flask(__name__)
-BUCKET = "my-app-bucket-kirill"
 
 
 @app.route('/')
 def entry_point():
-    return 'Hello World! Test!'
+    return 'Hello World!'
 
 
 @app.route("/storage")
@@ -36,8 +36,16 @@ def upload():
         f.filename = f"{w}_{h}_{f.filename}"
         print(f.filename)
         f.save(f.filename)
-        upload_file(f"{f.filename}", BUCKET)
+        upload_file(f"{f.filename}", S3_BUCKET)
         return redirect("/storage")
+
+
+@app.route("/download/<filename>", methods=['GET'])
+def download(filename):
+    if request.method == 'GET':
+        output = download_file(filename, S3_BUCKET)
+
+        return send_file(output, as_attachment=True)
 
 
 if __name__ == '__main__':
