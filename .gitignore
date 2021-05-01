@@ -175,4 +175,4 @@ dmypy.json
 cython_debug/
 
 *jpg
-*
+.idea/
