@@ -2,7 +2,7 @@ import os
 
 from flask import Flask, render_template, request, redirect, send_file, url_for
 
-from src.api import list_files, download_file, upload_file
+from src.api import upload_file
 from PIL import Image
 from io import BytesIO  
 from src.config import S3_BUCKET
