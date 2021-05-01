@@ -33,11 +33,10 @@ def upload():
         image_stream.seek(0)
         f.stream = image_stream
         f.filename = f"{w}_{h}_{f.filename}"
-        print(f.filename)
         f.save(f.filename)
         upload_file(f"{f.filename}", S3_BUCKET)
         return redirect("/storage")
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
