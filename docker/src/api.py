@@ -8,22 +8,3 @@ def upload_file(file_name, bucket):
     s3 = boto3.resource('s3')
     s3.Bucket(bucket).download_file(file_name, f"./downloads/{file_name}")
     return response
-
-
-def download_file(file_name, bucket):
-    s3 = boto3.resource('s3')
-    output = f"downloads/{file_name}"
-    s3.Bucket(bucket).download_file(file_name, output)
-    return output
-
-
-def list_files(bucket):
-    s3 = boto3.client('s3')
-    contents = []
-    try:
-        for item in s3.list_objects(Bucket=bucket)['Contents']:
-            print(item)
-            contents.append(item)
-    except Exception as e:
-        pass
-    return contents
