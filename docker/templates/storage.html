@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+  </head>
+  <body>
+    <div class="content">
+        <div>
+          <h3>Upload your file here:</h3>
+          <form method="POST" action="/upload" enctype=multipart/form-data>
+            <input type=text name="height"> <label for="height">height</label>
+            <input type=text name="width"> <label for="width">width</label>
+            <input type=file name=file>
+            <input type=submit value=Upload>
+          </form>
+        </div>
+    </div>
+  </body>
+</html>
