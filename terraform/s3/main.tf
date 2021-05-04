@@ -1,6 +1,6 @@
 provider "aws" {
     region = "us-east-2"
-    profile = "kirill"
+    profile = "default"
 }
 
 resource "aws_s3_bucket" "my-app-bucket-kirill" {
