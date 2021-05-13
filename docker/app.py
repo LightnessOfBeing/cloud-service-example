@@ -32,7 +32,7 @@ def upload():
         image.save(image_stream, format='JPEG')
         image_stream.seek(0)
         f.stream = image_stream
-        f.filename = f"{h}_{w}_{f.filename}"
+        f.filename = f"{w}_{h}_{f.filename}"
         f.save(f.filename)
         upload_file(f"{f.filename}", S3_BUCKET)
         return redirect("/storage")
